@@ -39,7 +39,7 @@ everything back to normal.
 If you plan on using de-auth packets, it never hurts to randomize your 
 MAC address. If you use option <b>[7]</b> it will correctly change and 
 randomize your NIC's MAC address. If and when you want to return to 
-your original MAC address, just use option <b>[8]</b>
+your original MAC address, use option <b>[8]</b>
 
 <b>OPTION [1]</b> - Focused capture. <b>[EAPOL]</b>
 

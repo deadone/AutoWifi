@@ -18,7 +18,7 @@ chmod 755 install.sh<br>
 ./install.sh<br>
 autowifi<br><br>
 <b>It will check and install any missing dependencies/tools.<br>
-Uninstall script can be found in /opt/autowifi/uninstall.sh
+Uninstall script can be found in /opt/autowifi/uninstall.sh</b>
 
 You can install dependencies yourself if you dont wish to use the install script.<br>
 You can open the program by going into the folder, and typing: ./main<br><br>

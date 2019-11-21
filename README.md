@@ -45,7 +45,7 @@ your original MAC address, use option <b>[8]</b>
 
 <b>OPTION [1]</b> - Focused capture. <b>[EAPOL]</b>
 
-<b>OPTION [2]</b> - Passive capture. <b>[EAPOL + PMK]</b>
+<b>OPTION [2]</b> - Passive capture. Sometimes takes a minute to grab something.<b>[EAPOL + PMK]</b>
 
 <b>If you use the install script captures will be saved in /opt/autowifi/handshakes & /opt/autowifi/pmk</b>
 

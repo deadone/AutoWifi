@@ -17,8 +17,8 @@ chmod 755 install.sh<br>
 ./install.sh<br>
 
 It will check and install any missing dependencies/tools.<br>
-<b>(Debian systems only, uses apt.)</b><br>
-<b>Test and created on Kali</b><br>
+<b>Debian systems only, uses apt</b><br>
+<b>Tested and created on Kali</b><br>
 
 <b>Required Tools:</b> 
 * hashcat (https://github.com/hashcat)

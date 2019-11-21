@@ -1,4 +1,5 @@
 #!/bin/bash
 # Used to create shortcut when using install.sh script. will be renamed autowifi and located in /usr/bin/
+# forces program to be opende by authorized users
 cd /opt/autowifi/
 sudo ./main

@@ -3,25 +3,23 @@
 WiFi Auditing
 Bash script for analyzing and collecting EAPOL captures and PMK captures, with basic
 file management meant to simplify analyzing
-and moving captures from tool to tool.
-
-AKA: Cracking wifi passwords.
+and moving captures from tool to tool.<br>
+AKA: Gathering and cracking wifi passwords.
 
 I made it to simplify a project, so I'm sure it has its flaws.
-Im just trying to share it with my friends.
-
+Im just trying to share it with my friends.<br>
 Tested and created on Kali<br>
 
 <b>To download and install type:</b><br>
+<i>Install script uses apt, Kali/Debian systems only</i> <br>
 git clone https://github.com/deadone/autowifi.git<br>
 cd autowifi<br>
 chmod 755 install.sh<br>
 ./install.sh<br><br>
-<b>It will check and install any missing dependencies/tools.<br></b>
-Install script uses apt, Debian systems only<br>
+<i>It will check and install any missing dependencies/tools.<br></i>
 
 You can install dependencies yourself if you dont wish to use the install script.<br>
-You can open the program by going into the folder, and typing: ./main<br><br>=
+You can open the program by going into the folder, and typing: ./main<br><br>
 <b>Required Tools:</b> 
 * hashcat (https://github.com/hashcat)
 * mdk3 (https://github.com/aircrack-ng/mdk3)
@@ -48,6 +46,8 @@ your original MAC address, use option <b>[8]</b>
 <b>OPTION [1]</b> - Focused capture. <b>[EAPOL]</b>
 
 <b>OPTION [2]</b> - Passive capture. <b>[EAPOL + PMK]</b>
+
+<b>If you use the install script captures will be saved in /opt/autowifi/handshakes & /opt/autowifi/pmk</b>
 
 <b>Options:</b>
 

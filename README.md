@@ -8,6 +8,7 @@ and moving captures from tool to tool.<br>
 I made it to simplify a project, so I'm sure it has its flaws.<br>
 Im just trying to share it with my friends.<br><br>
 Tested and created on Kali<br>
+Can only be used in a VM if you're using a USB adapter you can passthrough.
 
 <b>To download and install type:</b><br>
 <i>Install script uses apt, Kali/Debian systems only</i> <br>

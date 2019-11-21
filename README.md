@@ -8,16 +8,21 @@ and moving captures from tool to tool.
 I made it to simplify a project, so I'm sure it has its flaws.
 Im just trying to share it with my friends.
 
-<b>Required Dependencies:</b> 
+<b>To download and install type:</b>
+git clone https://github.com/deadone/autowifi.git
+cd autowifi/
+chmod 755 install.sh
+./install.sh
+
+It will check and install any missing dependencies/tools.
+<b>(Debian systems only, uses apt.)</b>
+
+<b>Required Tools:</b> 
 * hashcat
 * mdk3
 * aircrack-ng
 * hcxdumptool
 * hcxtools
-
-If you run <b>./install.sh</b>
-It will check and install any missing dependencies.
-<b>(Debian systems only, uses apt.)</b>
 
 <b>Test and created on Kali</b>
 

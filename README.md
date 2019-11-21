@@ -21,7 +21,7 @@ autowifi<br><br>
 
 You can install dependencies yourself if you dont wish to use the install script.<br>
 You can open the program by going into the folder, and typing: ./main<br><br>
-<b>Required Tools:</b> 
+<b>Required Tools:<i>(installed with script)</i></b> 
 * hashcat (https://github.com/hashcat)
 * mdk3 (https://github.com/aircrack-ng/mdk3)
 * aircrack-ng (https://www.aircrack-ng.org/)

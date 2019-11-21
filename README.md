@@ -5,7 +5,7 @@ Bash script for analyzing and collecting EAPOL captures and PMK captures, with b
 and moving captures from tool to tool.<br>
 <i>AKA: Gathering and cracking wifi passwords.</i>
 
-I made it to simplify a project, so I'm sure it has its flaws.<br>
+I made it to simplify a project, so I'm sure it has flaws.<br>
 Im just trying to share it with my friends.<br><br>
 Tested and created on Kali<br>
 Can only be used in a VM if you're using a USB adapter you can passthrough.

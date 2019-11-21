@@ -15,6 +15,11 @@ sudo chmod 755 -R /opt/autowifi/
 sleep 2s
 echo "[ *** DONE **** ]"
 echo ""
+echo "**************** -=[ Unzipping Wordlist... ]=- ****************"
+sudo unzip /opt/autowifi/wordlists/WPAmain.zip
+sleep 2s
+echo "[ *** DONE **** ]"
+echo ""
 echo "**************** -=[ Creating AutoWifi Shortcut... ]=- ****************"
 # move deafi to /bin/ and rename it autowifi, and give it priv. this program needs
 # to be run as root to interact with interfaces

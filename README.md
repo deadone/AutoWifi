@@ -1,7 +1,7 @@
 <b>AutoWifi - dead1</b>
 
-Bash script to analyze WiFi auditting
-EAPOL Capture and PMK Capture, with basic
+WiFi Auditing
+Bash script for analyzing and collecting EAPOL captures and PMK captures, with basic
 file management meant to simplify analyzing
 and moving captures from tool to tool.
 

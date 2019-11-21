@@ -70,8 +70,8 @@ fi
 
 if [ $ANL == y ]
 	then echo -e "${CL8}Running Capture Verification..${NC}"
-	hcxpcaptool -o ${DIR}airo/${NAME}${CHAN}temp ${DIR}airo/${NAME}${CHAN}
-	rm -rf ${DIR}airo/${NAME}${CHAN}temp
+	hcxpcaptool -o ${DIR}airo/${NAME}${CHAN}temp ${DIR}airo/${NAME}${CHAN}-01.cap
+	rm ${DIR}airo/${NAME}${CHAN}temp
 fi
 
 echo -e "${CL11}Format as hcxpcap?${CL8} (y/n)${NC}"

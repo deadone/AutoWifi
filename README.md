@@ -19,7 +19,7 @@ It will check and install any missing dependencies/tools.
 
 <b>Required Tools:</b> 
 * hashcat (https://github.com/hashcat)
-* mdk3
+* mdk3 (https://github.com/aircrack-ng/mdk3)
 * aircrack-ng (https://www.aircrack-ng.org/)
 * hcxdumptool (https://github.com/ZerBea/)
 * hcxtools (https://github.com/ZerBea/)

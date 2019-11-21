@@ -39,6 +39,7 @@ sudo rm /usr/local/bin/wlanjohn2hcx
 sudo rm /usr/local/bin/wlanpmk2hcx
 sudo rm /usr/local/bin/wlanwkp2hcx
 sudo apt remove -y libcurl4-openssl-dev libssl-dev zlib1g-dev
+sudo rm /opt/uninstall.sh
 echo "[ DONE ]"
 fi
 

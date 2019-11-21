@@ -1,4 +1,5 @@
 AutoWifi - dead1
+
 Bash Script to Manage WiFi Auditting
 EAPOL Capture and PMK Capture, with basic
 file management meant to simplify analyzing

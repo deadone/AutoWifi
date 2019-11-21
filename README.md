@@ -8,11 +8,11 @@ and moving captures from tool to tool.
 I made it to simplify a project, so I'm sure it has its flaws.
 Im just trying to share it with my friends.
 
-<b>To download and install type:</b>
-git clone https://github.com/deadone/autowifi.git
-cd autowifi/
-chmod 755 install.sh
-./install.sh
+<b>To download and install type:</b><br>
+git clone https://github.com/deadone/autowifi.git<br>
+cd autowifi<br>
+chmod 755 install.sh<br>
+./install.sh<br>
 
 It will check and install any missing dependencies/tools.
 <b>(Debian systems only, uses apt.)</b>

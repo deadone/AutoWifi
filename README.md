@@ -18,9 +18,9 @@ It will check and install any missing dependencies/tools.
 <b>(Debian systems only, uses apt.)</b>
 
 <b>Required Tools:</b> 
-* hashcat
+* hashcat (https://github.com/hashcat)
 * mdk3
-* aircrack-ng
+* aircrack-ng (https://www.aircrack-ng.org/)
 * hcxdumptool (https://github.com/ZerBea/)
 * hcxtools (https://github.com/ZerBea/)
 

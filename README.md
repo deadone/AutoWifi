@@ -16,7 +16,7 @@ git clone https://github.com/deadone/autowifi.git<br>
 cd autowifi<br>
 chmod 755 install.sh<br>
 ./install.sh<br>
-autowifi (to start)<br><br>
+autowifi<br><br>
 <b>It will check and install any missing dependencies/tools.<br></b>
 
 You can install dependencies yourself if you dont wish to use the install script.<br>

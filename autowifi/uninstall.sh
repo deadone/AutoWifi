@@ -6,9 +6,13 @@ RET=$PWD
 echo "AutoWifi Uninstall"
 echo "Are you sure you want to unistall"
 echo "(autowifi, hcxdumptool, hcxtools)"
+echo "This will clean up every file created with"
+echo "the install script."
 echo ""
-echo " ( Y / N )"
-echo "**************************************"
+echo " Y - Yes"
+echo " N - No"
+echo "********************"
+echo "Make selection:"
 read ANS
 
 if [ $ANS == "Y" ]

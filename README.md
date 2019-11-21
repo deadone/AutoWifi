@@ -10,15 +10,16 @@ AKA: Cracking wifi passwords.
 I made it to simplify a project, so I'm sure it has its flaws.
 Im just trying to share it with my friends.
 
+
+<b>It will check and install any missing dependencies/tools.<br></b>
+Debian systems only, uses apt<br>
+Tested and created on Kali<br>
+
 <b>To download and install type:</b><br>
 git clone https://github.com/deadone/autowifi.git<br>
 cd autowifi<br>
 chmod 755 install.sh<br>
 ./install.sh<br>
-
-<b>It will check and install any missing dependencies/tools.<br></b>
-Debian systems only, uses apt<br>
-Tested and created on Kali<br>
 
 <b>Required Tools:</b> 
 * hashcat (https://github.com/hashcat)

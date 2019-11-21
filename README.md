@@ -15,7 +15,8 @@ Can only be used in a VM if you're using a USB adapter you can passthrough.
 git clone https://github.com/deadone/autowifi.git<br>
 cd autowifi<br>
 chmod 755 install.sh<br>
-./install.sh<br><br>
+./install.sh<br>
+autowifi (to start)<br><br>
 <b>It will check and install any missing dependencies/tools.<br></b>
 
 You can install dependencies yourself if you dont wish to use the install script.<br>

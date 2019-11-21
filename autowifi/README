@@ -6,7 +6,7 @@ with basic file management meant to simplify analyzing
 and moving captures from tool to tool.
 AKA: Gathering and cracking wifi passwords.
 
-I made it to simplify a project, so I'm sure it has flaws.<
+I made it to simplify a project, so I'm sure it has flaws.
 Im just trying to share it with my friends.
 Tested and created on Kali
 Can only be used in a VM if you're using a USB adapter you can passthrough.

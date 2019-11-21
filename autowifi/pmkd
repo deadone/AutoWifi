@@ -1,0 +1,88 @@
+#!/bin/bash
+# dead1 AutoWifi v2.0
+# Author: dead1
+# Version: 2.0
+source config.ini
+
+LOOP=1
+
+HANDSHAKENUMBER=$(ls -l ${DIR}/handshakes/ | wc -l)
+LOOTNUMBER=$(ls -l ${DIR}/loot/ | wc -l)
+PMKNUMBER=$(ls -l ${DIR}/pmk/ | wc -l)
+DICTNUMBER=$(ls -l ${DIR}/wordlists/ | wc -l)
+EVIL=1
+NUMHAND=`expr $HANDSHAKENUMBER - $EVIL`
+NUMLOOT=`expr $LOOTNUMBER - $EVIL`
+NUMDICT=`expr $DICTNUMBER - $EVIL`
+NUMPMK=`expr $PMKNUMBER - $EVIL`
+
+clear
+./header
+echo -e " ${CL14}Interface:${CL9} ${IFACE1}"
+echo -e " ${CL8}#${CL14}PMKs: ${CL9}${NUMPMK}"
+echo -e " ${CL8}#${CL14}EAPOLs: ${CL9}${NUMHAND}"
+echo -e ""
+echo -e "${CL11}Output File:${NC}"
+read FILE
+echo -e ""
+sleep 1s
+clear
+./header
+hcxdumptool -o airo/${FILE} -i ${IFACE1} -t 5 --enable_status=1
+echo -e ""
+echo -e "${CL11}Discovered:${CL9}"
+hcxpcaptool -z ${DIR}airo/${FILE}temp1 ${DIR}airo/${FILE} | grep 'written' | cut -b 1-11
+hcxpcaptool -o ${DIR}airo/${FILE}temp2 ${DIR}airo/${FILE} | grep 'written' | cut -b 1-15
+rm -rf ${DIR}airo/${FILE}temp1
+rm -rf ${DIR}airo/${FILE}temp2
+echo -e ""
+echo -e " ${CL11}Format:" 
+echo -e " ${CL8}1. ${CL14}PMK" 
+echo -e " ${CL8}2. ${CL14}EAPOL" 
+echo -e " ${CL8}3. ${CL14}Both"
+echo -e " ${CL8}0. ${CL14}Cancel${NC}"
+read FORMAT
+echo -e ""
+if [ $FORMAT == 1 ]
+then
+INFO1=$(hcxpcaptool -z ${DIR}pmk/${FILE} ${DIR}airo/${FILE} | grep 'written' | cut -b 1-11)
+echo -e "${CL9}${INFO1}${CL14}saved to ${CL8}${DIR}pmk/${CL9}${FILE}"
+fi
+
+if [ $FORMAT == 2 ]
+then
+INFO2=$(hcxpcaptool -o ${DIR}handshakes/${FILE} ${DIR}airo/${FILE} | grep 'written' | cut -b 1-15)
+echo -e "${CL9}${INFO2}${CL14}saved to ${CL8}${DIR}handshakes/${CL9}${FILE}"
+fi
+
+if [ $FORMAT == 3 ]
+then
+INFO1=$(hcxpcaptool -z ${DIR}pmk/${FILE} ${DIR}airo/${FILE} | grep 'written' | cut -b 1-11)
+INFO2=$(hcxpcaptool -o ${DIR}handshakes/${FILE} ${DIR}airo/${FILE} | grep 'written' | cut -b 1-15)
+echo -e "${CL9}${INFO1}${CL14}saved to ${CL8}${DIR}pmk/${CL9}${FILE}"
+echo -e "${CL9}${INFO2}${CL14}saved to ${CL8}${DIR}handshakes/${CL9}${FILE}"
+fi
+
+if [ $FORMAT == 0 ] 
+then
+echo -e "${CL8}Cancelled."
+fi
+echo -e ""
+echo -e "${CL11}Delete PCAP File? (y/n)${NC}"
+read ANSWER
+echo -e ""
+if [ $ANSWER == y ]
+then
+rm -rf ${DIR}airo/${FILE}
+echo -e "${CL8}Deleted.${NC}"
+echo -e ""
+fi
+if [ $ANSWER == n ]
+then
+echo -e "${CL9}Saved.${NC}"
+echo -e ""
+fi
+sleep 1s
+exit
+
+

@@ -1,0 +1,103 @@
+#!/bin/bash
+# dead1 AutoWifi v2.0
+# Author: dead1
+# Version: 2.0
+source config.ini
+
+clear
+gnome-terminal -q -e "airodump-ng ${IFACE1}" --full-screen
+clear 
+./header
+echo -e " ${CL14}Recon Interface:${CL9}  ${IFACE1}"
+echo -e " ${CL14}MDK3 Interface:${CL9} ${IFACE2}"
+echo -e ""
+echo -e "${CL11}Enter Channel:${CL8} (eg: 6)${NC}"
+read CHAN
+echo -e ""
+echo -e "${CL11}File Name:${CL8} (telus)${NC}"
+read NAME
+echo -e ""
+echo -e "${CL11}Launch MDK3: ${CL8}(y/n)${NC}"
+read CANNON
+echo -e ""
+echo -e "${CL11}Setting up Airodump-NG on Channel ${CL7}${CHAN} ${CL11}on ${CL7}${IFACE1}..${NC}"
+sleep 1s
+gnome-terminal -q -e "airodump-ng -c ${CHAN} -w ${DIR}airo/${NAME}${CHAN} ${IFACE1}" --full-screen
+
+if [ $CANNON == y ]
+then echo -e ""
+sed -i -r 's/\CHANNEL=.*/CHANNEL='$CHAN'/' config.ini
+gnome-terminal -q -e "./cannon"
+fi
+
+if [ $CANNON == n ] 
+then echo -e ""
+fi 
+
+sleep 2s
+clear
+./header
+
+echo -e "${CL14}Recon Interface:${CL9}  ${IFACE1}"
+echo -e "${CL14}MDK3 Interface:${CL9} ${IFACE2}"
+echo -e "\n${CL11}Analyze Capture?${CL8} (y/n)${NC}"
+sleep 3s
+rm ${DIR}airo/*.csv
+rm ${DIR}airo/*.netxml
+read ANL
+echo -e ""
+if [ $ANL == n ]
+	then echo -e "${CL11}Delete ${CL9}${NAME}${CHAN}-01.cap${CL11}?${CL8} (y/n)${NC}"
+	read DEL
+
+	if [ $DEL == y ]
+	then rm  ${DIR}airo/${NAME}${CHAN}-01.cap
+	echo -e "" 
+	echo -e "${CL8}${NAME}${CHAN}-01.cap Deleted.${NC}"
+	echo -e ""
+	sleep 2s
+	exit
+	fi
+	
+	if [ $DEL == n ]
+	echo -e ""
+	then echo -e "${CL8}${NAME}${CHAN}-01.cap Saved."
+	echo -e "${NC}"
+	sleep 2s
+	exit
+	fi
+fi
+
+if [ $ANL == y ]
+	then echo -e "${CL8}Running Capture Verification..${NC}"
+	hcxpcaptool -o ${DIR}airo/${NAME}${CHAN}temp ${DIR}airo/${NAME}${CHAN}
+	rm -rf ${DIR}airo/${NAME}${CHAN}temp
+fi
+
+echo -e "${CL11}Format as hcxpcap?${CL8} (y/n)${NC}"
+read STRIP
+echo -e " "
+
+if [ $STRIP == y ]
+then echo -e "${CL11}Output Name:${NC}"
+read OUTPUT
+echo -e " "
+hcxpcaptool -o ${DIR}handshakes/${OUTPUT} ${DIR}airo/${NAME}${CHAN}-01.cap
+echo -e " "
+echo -e "${CL11}Created ${CL1}handshakes/${OUTPUT}${CL11}${NC}"
+echo -e " "
+fi
+
+echo -e "${CL11}Delete capture file?${CL8} (y/n)${NC}"
+read DELE
+echo -e " "
+if [ $DELE == n ]
+then echo -e "${CL11}${NAME}${CHAN}-01.cap Saved."
+fi
+
+if [ $DELE == y ]
+then echo -e "${CL8}${NAME}${CHAN}-01.cap Deleted."
+echo -e ""
+rm ${DIR}airo/${NAME}${CHAN}-01.cap
+fi
+sleep 2s

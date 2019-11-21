@@ -1,0 +1,112 @@
+#!/bin/bash
+# dead1 AutoWifi v2.0
+# Author: dead1
+# Version: 2.0
+source config.ini
+
+LOOP=1
+
+HANDSHAKENUMBER=$(ls -l ${DIR}/handshakes/ | wc -l)
+LOOTNUMBER=$(ls -l ${DIR}/loot/ | wc -l)
+PMKNUMBER=$(ls -l ${DIR}/pmk/ | wc -l)
+DICTNUMBER=$(ls -l ${DIR}/wordlists/ | wc -l)
+EVIL=1
+NUMHAND=`expr $HANDSHAKENUMBER - $EVIL`
+NUMLOOT=`expr $LOOTNUMBER - $EVIL`
+NUMDICT=`expr $DICTNUMBER - $EVIL`
+NUMPMK=`expr $PMKNUMBER - $EVIL`
+
+clear
+./header
+echo -e " ${CL14}Dictionary:${CL9} ${DICT}"
+echo -e " ${CL8}# ${CL14}of Dictionaries:${CL9} ${NUMDICT}${NC}"
+echo -e " ${CL8}# ${CL14}EAPOL:${CL9} ${NUMHAND}"
+echo -e " ${CL8}# ${CL14}PMK:${CL9}  ${NUMPMK}"
+echo -e ""
+echo -e " ${CL14}Select:"
+echo -e " ${CL8}1. ${CL14}PMK"
+echo -e " ${CL8}2. ${CL14}EAPOL"
+echo -e " ${CL8}3. ${CL14}Exit${NC}"
+read TYPE
+if [ $TYPE == 1 ]
+then
+./pmkhash
+fi
+
+if [ $TYPE == 2 ]
+then
+clear
+./header
+echo -e "${CL8}- Stats -"
+echo -e "${CL14}Dictionary:${CL9} ${DICT}"
+echo -e "${CL8}# ${CL14}of Dictionaries:${CL9} ${NUMDICT}${NC}"
+echo -e "${CL14}Avaliable Handshakes:${CL9}"
+ls ${DIR}handshakes
+echo -e ""
+echo -e "${CL11}Select Handshake:${NC}"
+read FILE
+echo -e ""
+echo -e "${CL11}Use Rule?${CL8} (y/n)${NC}"
+read RULES
+echo -e ""
+if [ $RULES == y ]
+then
+echo -e "${CL11}Which Rule?${CL8} (best64)${NC}"
+read RULE
+echo -e ""
+hashcat -m 2500 ${DIR}handshakes/${FILE} -a 0 -w 4 -r /usr/share/hashcat/rules/${RULE}.rule --force wordlists/${DICT}
+fi
+
+if [ $RULES == n ]
+then
+hashcat -m 2500 ${DIR}handshakes/${FILE} -a 0 -w 4 --force wordlists/${DICT}
+echo -e ""
+echo -e " ${CL9}RESULTS${CL12}"
+echo -e ""
+if [ $RULES == y ]
+then
+hashcat -m 2500 ${DIR}handshakes/${FILE} -a 0 -w 4 -r /usr/share/hashcat/rules/${RULE}.rule --force wordlists/${DICT} --show --status --status-timer=5 >> ${DIR}loot/${FILE}temp.txt
+fi
+if [ $RULES == n ]
+then
+hashcat -m 2500 ${DIR}handshakes/${FILE} -a 0 -w 4 --force wordlists/${DICT} --status --status-timer=5 --show >> ${DIR}loot/${FILE}temp.txt
+fi
+
+if [ -s ${DIR}loot/${FILE}temp.txt ]
+then
+cat ${DIR}loot/${FILE}temp.txt >> ${DIR}loot/${FILE}.txt 
+cat ${DIR}loot/${FILE}.txt | grep :
+echo -e ""
+echo -e " ${CL111}Saved @ ${CL8}${DIR}loot/${FILE}.txt${NC}"
+rm -rf ${DIR}loot/${FILE}temp.txt
+echo -e ""
+else
+echo -e " ${CL11}No luck.${NC}"
+rm -rf ${DIR}loot/${FILE}temp.txt
+echo -e ""
+fi
+fi
+echo -e "${CL11}Delete hccapx file?${CL8} (y/n)${NC}"
+read DELETE
+clear
+if [ $DELETE == y ]
+then
+rm ${DIR}handshakes/${FILE}
+echo -e ""
+echo -e "${CL7} ${DIR}handshakes/${FILE}  ${CL1}DELETED${NC}"
+echo -e " * PRESS CTRL+C TO EXIT *"
+echo -e ""
+fi
+if [ $DELETE == n ]
+then
+echo -e ""
+echo -e "${CL7} ${DIR}handshakes/${FILE}  ${CL1}SAVED${NC}"
+echo -e " * PRESS CTRL+C TO EXIT *"
+echo -e ""
+fi
+
+while :
+do 
+sleep 2s
+done
+fi

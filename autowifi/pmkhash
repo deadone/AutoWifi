@@ -1,0 +1,69 @@
+#!/bin/bash
+# dead1 AutoWifi v2.0
+# Author: dead1
+# Version: 2.0
+source config.ini
+
+LOOP=1
+
+DICTNUMBER=$(ls -l ${DIR}wordlists/ | wc -l)
+EVIL=1
+NUMDICT=`expr $DICTNUMBER - $EVIL`
+
+clear
+./header
+echo -e "${CL8}- Stats -"
+echo -e "${CL14}Dictionary:${CL9} ${DICT}"
+echo -e "${CL8}# ${CL14}of Dictionaries:${CL9} ${NUMDICT}${NC}"
+echo -e "${CL14}Avaliable PMKS:${CL9}"
+ls ${DIR}pmk
+echo -e "${CL7}"
+echo -e "${CL11}Select PMK:${NC}"
+read PMK
+echo -e ""
+echo -e "${CL11}Use Rule?${CL8} (y/n)${NC}"
+read RULES
+echo -e ""
+if [ $RULES == y ]
+then
+echo -e "${CL11}Which Rule?${CL8} (best64)${NC}"
+read RULE
+echo -e ""
+hashcat -m 16800 ${DIR}pmk/${PMK} -a 0 -w 4 -r /usr/share/hashcat/rules/${RULE}.rule --force wordlists/${DICT} --status --status-timer=5
+fi
+if [ $RULES == n ]
+then
+hashcat -m 16800 ${DIR}pmk/${PMK} -a 0 -w 4 --force wordlists/${DICT} --status --status-timer=5
+fi
+clear
+echo -e ""
+echo -e " ${CL9}RESULTS${CL12}"
+echo -e ""
+if [ $RULES == y ]
+then
+hashcat -m 16800 ${DIR}pmk/${PMK} -a 0 -w 4 -r /usr/share/hashcat/rules/${RULE}.rule --force wordlists/${DICT} --show >> ${DIR}loot/${PMK}temp.txt
+fi
+if [ $RULES == n ]
+then
+hashcat -m 16800 ${DIR}pmk/${PMK} -a 0 -w 4 --force wordlists/${DICT} --show >> ${DIR}loot/${PMK}temp.txt
+fi
+
+if [ -s ${DIR}loot/${PMK}temp.txt ]
+then
+cat ${DIR}loot/${PMK}temp.txt >> ${DIR}loot/${PMK}.txt 
+cat ${DIR}loot/${PMK}.txt | grep :
+echo -e ""
+echo -e " ${CL10}Saved @ ${CL7}${DIR}loot/${PMK}.txt${NC}"
+rm -rf ${DIR}loot/${PMK}temp.txt
+rm -rf ${DIR}handshakes/${PMK}.txt
+echo -e ""
+else
+echo -e " ${CL10}No luck.${NC}"
+rm -rf ${DIR}loot/${FILE}temp.txt
+rm -rf ${DIR}handshakes/${FILE}.txt
+echo -e ""
+fi
+while :
+do 
+sleep 2s
+done

@@ -1,0 +1,16 @@
+#!/bin/bash
+# dead1 AutoWifi v2.0
+# Author: dead1
+# Version: 2.0
+source config.ini
+echo -e ""
+echo -e " ${CL7}XXXXX  ${CL7}XXXXXX ${CL7} XXXX  ${CL7}XXXXX${CL8}   XXX"
+echo -e " ${CL7}XXXXXX ${CL7}XXXXXX ${CL7}XXXXXX ${CL7}XXXXXX${CL8} XXXX"
+echo -e " ${CL7}XX  XX ${CL7}XX     ${CL7}XX  XX ${CL7}XX  XX${CL8}  XXX"
+echo -e " ${CL7}XX  XX ${CL7}XXXXXX ${CL7}XX  XX ${CL7}XX  XX${CL8}  XXX"
+echo -e " ${CL7}XX  XX ${CL7}XXXXXX ${CL7}XXXXXX ${CL7}XX  XX${CL8}  XXX"
+echo -e " ${CL7}XX  XX ${CL7}XX     ${CL7}XXXXXX ${CL7}XX  XX${CL8}  XXX"
+echo -e " ${CL7}XXXXXX ${CL7}XXXXXX ${CL7}XX  XX ${CL7}XXXXXX${CL8}  XXX"
+echo -e " ${CL7}XXXXX  ${CL7}XXXXXX ${CL7}XX  XX ${CL7}XXXXX${CL8}  XXXXX${CL7}'S"    
+echo -e "                      ${CL9}AutoWifi ${CL11}v3.50"
+echo -e "${CL7} ***********************************"

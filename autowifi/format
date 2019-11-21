@@ -1,0 +1,33 @@
+#!/bin/bash
+# dead1 AutoWifi v2.0
+# Author: dead1
+# Version: 2.0
+source config.ini
+
+# UNDER CONSTRUCTION
+
+LOOP=1
+
+HANDSHAKENUMBER=$(ls -l ${DIR}/handshakes/ | wc -l)
+LOOTNUMBER=$(ls -l ${DIR}/loot/ | wc -l)
+PMKNUMBER=$(ls -l ${DIR}/pmk/ | wc -l)
+DICTNUMBER=$(ls -l ${DIR}/wordlists/ | wc -l)
+EVIL=1
+NUMHAND=`expr $HANDSHAKENUMBER - $EVIL`
+NUMLOOT=`expr $LOOTNUMBER - $EVIL`
+NUMDICT=`expr $DICTNUMBER - $EVIL`
+
+clear
+./header
+echo -e ""
+
+#PMK
+hcxpcaptool -z ${DIR}airo/${FILE}temp1 ${DIR}airo/${FILE} | grep 'written' | cut -b 1-11
+#EAPOL
+hcxpcaptool -o ${DIR}airo/${FILE}temp2 ${DIR}airo/${FILE} | grep 'written' | cut -b 1-15
+rm -rf ${FILE}temp1
+rm -rf ${FILE}temp2
+
+hcxpcaptool -o ~/autowifi/airo/cheese downtown2shop | grep 'written' | cut -b 1-11
+hcxpcaptool -o ~/autowifi/airo/cheese downtown2shop | grep 'written' | cut -b 1-15
+

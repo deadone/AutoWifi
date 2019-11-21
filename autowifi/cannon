@@ -1,0 +1,17 @@
+#!/bin/bash
+# dead1 AutoWifi v2.0
+# Author: dead1
+# Version: 2.0
+
+source config.ini
+
+clear
+./header
+echo -e "${CL11}MDK3 on Channel ${CL7}${CHANNEL}${CL11} with ${CL7}${IFACE2}"
+echo -e ""
+echo -e "${CL4}*** MDK3 IS RUNNING ***${NC}"
+echo -e "${CL8}Press Ctrl+C to stop..${NC}"
+mdk3 ${IFACE2} d -c ${CHANNEL}
+
+
+

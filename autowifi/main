@@ -1,0 +1,220 @@
+#!/bin/bash
+# dead1 AutoWifi v2.0
+# Author: dead1
+# Version: 2.0
+
+LOOP=1
+while [ ${LOOP} == 1 ]
+do
+echo -e "${NC}"
+source config.ini
+FRUN=$(service NetworkManager status | grep '(running)' | cut -b 20,21)
+RMAC=$(macchanger -s $IFACE1 | grep Current | cut -b 16-32)
+MACS=$(macchanger -s $IFACE1 | grep Permanent | cut -b 16-32)
+
+if [ $RMAC == $MACS ]
+then RANDO='NO!'
+MACC=${CL8}
+fi
+if [ $RMAC != $MACS ]
+then RANDO='YES'
+MACC=${CL9}
+fi
+
+if [ $FRUN == 'ru' ] 
+then FRUN='NO!'
+STAT=${CL8} 
+fi
+if [ -z $FRUN ]
+then FRUN='YES'
+STAT=${CL9}
+fi
+
+HANDSHAKENUMBER=$(ls -l ${DIR}/handshakes/ | wc -l)
+LOOTNUMBER=$(ls -l ${DIR}/loot/ | wc -l)
+PMKNUMBER=$(ls -l ${DIR}/pmk/ | wc -l)
+DICTNUMBER=$(ls -l ${DIR}/wordlists/ | wc -l)
+EVIL=1
+NUMHAND=`expr $HANDSHAKENUMBER - $EVIL`
+NUMLOOT=`expr $LOOTNUMBER - $EVIL`
+NUMDICT=`expr $DICTNUMBER - $EVIL`
+NUMPMK=`expr $PMKNUMBER - $EVIL`
+${CL7}
+clear
+./header
+echo -e " ${CL14}Interface:  ${CL11}${IFACE1} ${CL14}Secondary:  ${CL11}${IFACE2}"
+echo -e " ${CL14}Configured: ${STAT}${FRUN}   ${CL14}Random MAC: ${MACC}${RANDO}"
+echo -e " ${CL8}# ${CL14}of EAPOLs: ${CL11}${NUMHAND}    ${CL14}Wordlist:   ${CL11}${DICT}"
+echo -e " ${CL8}# ${CL14}of PMKs:   ${CL11}${NUMPMK}    ${CL8}# ${CL14}Wordlists:${CL11} ${NUMDICT}${NC}"
+echo -e " ${CL14}Current MAC:      ${MACC}${RMAC}"
+echo -e " ${CL7}***********************************"
+echo -e " ${CL8}1. ${CL14}EAPOL Capture  ${CL8}2. ${CL14}PMK Capture"
+echo -e " ${CL8}3. ${CL14}Force EAPOL    ${CL8}4. ${CL14}Crack Capture"
+echo -e " ${CL8}5. ${CL14}Configure      ${CL8}6. ${CL14}Reset Config."
+echo -e " ${CL8}7. ${CL14}Random MAC     ${CL8}8. ${CL14}Reset MAC"
+echo -e " ${CL8}9. ${CL14}Settings       ${CL8}0. ${CL14}Format PCAPs"
+echo -e " ${CL8}X. ${CL14}Exit           ${CL8}XX.${CL14}Kill Computer"
+read CHOICE
+
+if [ $CHOICE == 1 ]
+then echo -e ""
+echo -e "${CL8}Recon Opened."
+echo -e "${CL14}Good luck."
+echo -e ""
+gnome-terminal -q -e "./recon"
+sleep 1s
+fi
+
+if [ $CHOICE == 2 ]
+then echo -e  ""
+echo -e "${CL8}PMK Capture Opened."
+echo -e "${CL14}Good luck."
+echo -e ""
+gnome-terminal -q -e "./pmkd" --full-screen
+sleep 1s
+fi
+
+if [ $CHOICE == 3 ]
+then echo -e  ""
+echo -e "${CL8}MDK5 Cannon Opened."
+echo -e "${CL14}Be Careful."
+echo -e ""
+gnome-terminal -q -e "./cannon"
+sleep 1s
+fi
+
+if [ $CHOICE == 4 ]
+then echo -e "" 
+echo -e "${CL8}Hash Opened."
+echo -e "${CL14}Good luck."
+echo -e ""
+gnome-terminal -q -e "./hash"
+sleep 1s
+fi
+
+if [ $CHOICE == 5 ]
+then echo -e ""
+echo -e "${CL11}Stopping RFKill.${NC}"
+rfkill unblock wifi
+echo -e "${CL8}Done."
+echo -e ""
+sleep 1s
+echo -e "${CL11}Airmon-NG Check Kill.${NC}"
+airmon-ng check kill
+echo -e "${CL8}Done."
+echo -e ""
+sleep 1s
+fi
+
+if [ $CHOICE == 6 ]
+then echo -e ""
+echo -e "${CL11}Restarting Network Manager."
+ifconfig ${IFACE1} down
+iwconfig ${IFACE1} mode managed
+ifconfig ${IFACE1} up
+service NetworkManager restart
+echo -e "${CL8}Done."
+echo -e ""
+sleep 1s
+fi
+
+if [ $CHOICE == 7 ]
+then echo -e ""
+echo -e "${CL11}Stopping ${CL9}${IFACE1}.${NC}"
+ifconfig ${IFACE1} down
+echo -e "${CL8}Done."
+sleep 1s
+echo -e ""
+echo -e "${CL11}Randomizing MAC Address.${CL9}"
+macchanger -r ${IFACE1} | grep 'New'
+echo -e "${CL8}Done."
+sleep 1s
+echo -e ""
+echo -e "${CL11}Restarting ${CL9}${IFACE1}.${NC}"
+ifconfig ${IFACE1} up
+echo -e "${CL8}Done."
+sleep 1s
+fi
+
+if [ $CHOICE == 8 ]
+then echo -e ""
+echo -e "${CL11}Stopping ${CL9}${IFACE1}.${NC}"
+ifconfig ${IFACE1} down
+echo -e "${CL8}Done."
+sleep 1s
+echo -e ""
+echo -e "${CL11}Reconfiguring Permanent MAC Address.${CL9}"
+macchanger -p ${IFACE1} | grep 'New'
+echo -e "${CL8}Done."
+sleep 1s
+echo -e ""
+echo -e "${CL11}Restarting ${CL9}${IFACE1}.${NC}"
+ifconfig ${IFACE1} up
+echo -e "${CL8}Done."
+sleep 1s
+fi
+
+if [ $CHOICE == 9 ]
+then echo -e ""
+echo -e "${CL11}Current Configuration"
+echo -e "${CL14}Primary Interface:    ${CL9}${IFACE1}"
+echo -e "${CL14}Secondary Interface:  ${CL9}${IFACE2}"
+echo -e "${CL8}# ${CL14}EAPOLs: ${CL9}${NUMHAND}"
+echo -e "${CL8}# ${CL14}PMKs: ${CL9}  ${NUMPMK}"
+echo -e ""
+echo -e "${CL11}Primary Interface: (eg. ${CL8}wlan0${CL11})${NC}"
+read RIFACE1
+if [ $RIFACE1 != '' ]
+then sed -i -r 's/\IFACE1=.*/IFACE1='$RIFACE1'/' config.ini
+fi
+echo -e ""
+echo -e "${CL11}Secondary Interface: (eg. ${CL8}wlan1${CL11})${NC}"
+read RIFACE2
+if [ $RIFACE2 != '' ] 
+then sed -i -r 's/\IFACE2=.*/IFACE2='$RIFACE2'/' config.ini
+fi
+echo -e ""
+echo -e "${CL11}Dictionaries:${CL14}"
+ls wordlists
+echo -e "${CL11}Wordlist: (eg. ${CL8}main${CL11})${NC}"
+read WORDS
+if [ $WORDS != '' ]
+then sed -i -r 's/\DICT=.*/DICT='$WORDS'/' config.ini
+fi
+echo -e ""
+echo -e "${CL11}Delete all files?? (${CL8}YES${CL11} to delete.)${NC}"
+read DELE
+if [ $DELE == 'YES' ]
+then rm -rf pmk/*
+rm -rf handshakes/*
+rm -rf loot/*
+rm -rf airo/*
+echo -e "${CL8}All files deleted."
+fi
+echo -e ""
+echo -e "${CL8}Done."
+sleep 1s
+fi
+
+if [ $CHOICE == 0 ]
+then echo -e ""
+echo -e "${CL11}Under Construction.."
+#gnome-terminal -q -e "./format"
+echo -e ""
+sleep 1s
+fi
+
+if [ $CHOICE == "X" ]
+then echo -e ""
+echo -e "${CL8}Bye.${NC}"
+echo -e ""
+LOOP='2'
+fi
+
+if [ $CHOICE == "XX" ]
+then echo -e ""
+echo -e "${CL8}Bye.${NC}"
+shutdown now
+fi
+clear
+done

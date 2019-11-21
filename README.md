@@ -26,9 +26,8 @@ It will check and install any missing dependencies/tools.
 * hcxtools (https://github.com/ZerBea/)
 
 Comes with a built in wordlist (apparently too big for github, you
-can get it from me in class),Kali comes with a built in version of
-rockyou.txt, copy the file into the '/wordlists' directory, or get 
-it from me in class.
+can get it from me in class), but Kali comes with a built in version of
+rockyou.txt, copy the file into the '/wordlists' directory.
 
 <b>Setting Up:</b>
 When you start autowifi, first take note of <b>"CONFIGURED"</b>. If

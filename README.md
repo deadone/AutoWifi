@@ -16,6 +16,7 @@ chmod 755 install.sh<br>
 
 It will check and install any missing dependencies/tools.
 <b>(Debian systems only, uses apt.)</b>
+<b>Test and created on Kali</b>
 
 <b>Required Tools:</b> 
 * hashcat (https://github.com/hashcat)
@@ -23,8 +24,6 @@ It will check and install any missing dependencies/tools.
 * aircrack-ng (https://www.aircrack-ng.org/)
 * hcxdumptool (https://github.com/ZerBea/)
 * hcxtools (https://github.com/ZerBea/)
-
-<b>Test and created on Kali</b>
 
 Comes with a built in wordlist (apparently too big for github, you
 can get it from me in class),Kali comes with a built in version of

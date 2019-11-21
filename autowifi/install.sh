@@ -6,9 +6,9 @@ RET=$PWD
 echo "**************** -=[   Installing AutoWifi...    ]=- ****************"
 echo "**************** -=[ Configurting Directories... ]=- ****************"
 # move folders to opt folder for ease of collection and removal, and set privs
-sudo mv autowifi/ /opt/
-sudo mv hcxdumptool/ /opt/
-sudo mv hcxtools/ /opt/
+sudo mv /autowifi/ /opt/
+sudo mv /hcxdumptool/ /opt/
+sudo mv /hcxtools/ /opt/
 sudo chmod 755 -R /opt/autowifi/
 sudo chmod 755 -R /opt/hcxtools/
 sudo chmod 755 -R /opt/autowifi/
@@ -18,7 +18,6 @@ echo ""
 echo "**************** -=[ Creating AutoWifi Shortcut... ]=- ****************"
 # move deafi to /bin/ and rename it autowifi, and give it priv. this program needs
 # to be run as root to interact with interfaces
-sudo mv unistall.sh /opt/autowifi/
 sudo cp deadfi /usr/bin/autowifi
 sudo chmod 755 /usr/bin/autowifi
 sleep 2s
@@ -61,16 +60,27 @@ echo ""
 echo "*******************************************************************"
 echo "|                        dead1's AutoWifi                         |"
 echo "|                                                                 |"
-echo "|                 -= Enjoy. Use Responsibly =-                    |"
+echo "|                  -= Enjoy. Use Responsibly =-                   |"
 echo "|      I am not responsible for anything you do with this,        |"
 echo "| I am not responsible for anything that happens from using this. |"
 echo "|               ****** USE AT YOUR OWN RISK ******                |"
 echo "|              PLEASE READ THE README.md ON GITHUB                |"
+echo "|                    FOR INSTRUCTIONS ON USE                      |"
+echo "|                                                                 |"
 echo "|           autowifi and Capture files can be found in:           |"
 echo "|                          /opt/autowifi                          |"
 echo "|                                                                 |"
-echo "|                To use autowifi:    autowifi                     |"
-echo "|                        (requires root)                          |"
+echo "|                      TO VIEW README FILE                        |"
+echo "|                             TYPE:                               |"
+echo "|                     cat /opt/autowifi/README                    |"
+echo "|                                                                 |"                        
+echo "|               Uninstall Script for EVERYTHING just              |"
+echo "|          installed exists at: /opt/autowifi/uninstall.sh        |"
+echo "|                                                                 |"
+echo "|                     To use autowifi type:                       |"
+echo "|                           autowifi                              |"
+echo "|                       (requires root)                           |"
 echo "|                                                    ... dead1.   |"
 echo "*******************************************************************"
 echo ""
+

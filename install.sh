@@ -18,7 +18,6 @@ echo ""
 echo "**************** -=[ Creating AutoWifi Shortcut... ]=- ****************"
 # move deafi to /bin/ and rename it autowifi, and give it priv. this program needs
 # to be run as root to interact with interfaces
-sudo mv unistall.sh /opt/autowifi/
 sudo cp deadfi /usr/bin/autowifi
 sudo chmod 755 /usr/bin/autowifi
 sleep 2s

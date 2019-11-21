@@ -36,9 +36,11 @@ randomize your NIC's MAC address. If and when you want to return to
 your original MAC address, just use option [8]
 
 OPTION [1] - Focused capture. [EAPOL]
+
 OPTION [2] - Passive capture. [EAPOL + PMK]
 
 Options:
+
 [1] - EAPOL Capture. Will open a airodump capture on all channels
    so that you can see which channel your target(s) are on. Press 
    Ctrl+C to close the window. Input the channel, and the name you

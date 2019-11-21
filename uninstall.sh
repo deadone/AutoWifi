@@ -12,7 +12,7 @@ read ANS
 if [ $ANS == "Y" ]
 then
 echo "-=[   Uninstalling AutoWifi and Friends    ]=-"
-sudo rm -rf /opt/autowifi       # removing folders
+sudo rm -rf /opt/autowifi # removing folders
 sudo rm -rf /opt/hcxtools/
 sudo rm -rf /opt/hcxdumptool/
 sudo rm /usr/local/bin/autowifi # removing shortcuts
@@ -38,7 +38,8 @@ sudo rm /usr/local/bin/wlanhcxmnc
 sudo rm /usr/local/bin/wlanjohn2hcx
 sudo rm /usr/local/bin/wlanpmk2hcx
 sudo rm /usr/local/bin/wlanwkp2hcx
-sudo apt remove
+sudo apt remove -y libcurl4-openssl-dev libssl-dev zlib1g-dev
+sudo apt autoremove
 echo "[ DONE ]"
 fi
 

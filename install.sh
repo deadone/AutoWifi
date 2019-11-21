@@ -5,23 +5,22 @@
 RET=$PWD
 echo "**************** -=[   Installing AutoWifi...    ]=- ****************"
 echo "**************** -=[ Configurting Directories... ]=- ****************"
-sleep 2s
 sudo mv autowifi/ /opt/
 sudo mv hcxdumptool/ /opt/
 sudo mv hcxtools/ /opt/
 sudo chmod 755 -R /opt/autowifi/
 sudo chmod 755 -R /opt/hcxtools/
 sudo chmod 755 -R /opt/autowifi/
+sleep 2s
 echo "[ *** DONE **** ]"
 echo ""
 echo "**************** -=[ Creating AutoWifi Shortcut... ]=- ****************"
+sudo cp deadfi /bin/autowifi
+sudo chmod 755 /bin/autowifi
 sleep 2s
 echo "[ *** DONE **** ]"
 echo ""
-sudo cp deadfi /bin/autowifi
-sudo chmod 755 /bin/autowifi
 echo "**************** -=[ Installing Dependencies... ]=- ****************"
-sleep 2s
 sudo apt install -y hashcat mdk3 aircrack-ng libcurl4-openssl-dev libssl-dev zlib1g-dev
 echo "[ *** DONE **** ]"
 echo ""
@@ -40,9 +39,9 @@ sudo make install
 echo "[ *** DONE **** ]"
 echo ""
 echo "**************** -=[ Cleaning Up Installation Files... ]=- ****************"
-sleep 2s
 sudo rm -rf $RET
 cd $HOME
+sleep 2s
 echo "[ *** DONE **** ]"
 echo ""
 echo "*******************************************************************"

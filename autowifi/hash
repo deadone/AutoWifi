@@ -54,22 +54,22 @@ then
 echo -e "${CL11}Which Rule?${CL8} (best64)${NC}"
 read RULE
 echo -e ""
-hashcat -m 2500 ${DIR}handshakes/${FILE} -a 0 -w 4 -r /usr/share/hashcat/rules/${RULE}.rule --force wordlists/${DICT}
+hashcat -m 2500 ${DIR}handshakes/${FILE} -a 0 -w 4 -r /usr/share/hashcat/rules/${RULE}.rule --force ${DIR}wordlists/${DICT}
 fi
 
 if [ $RULES == n ]
 then
-hashcat -m 2500 ${DIR}handshakes/${FILE} -a 0 -w 4 --force wordlists/${DICT}
+hashcat -m 2500 ${DIR}handshakes/${FILE} -a 0 -w 4 --force ${DIR}wordlists/${DICT}
 echo -e ""
 echo -e " ${CL9}RESULTS${CL12}"
 echo -e ""
 if [ $RULES == y ]
 then
-hashcat -m 2500 ${DIR}handshakes/${FILE} -a 0 -w 4 -r /usr/share/hashcat/rules/${RULE}.rule --force wordlists/${DICT} --show --status --status-timer=5 >> ${DIR}loot/${FILE}temp.txt
+hashcat -m 2500 ${DIR}handshakes/${FILE} -a 0 -w 4 -r /usr/share/hashcat/rules/${RULE}.rule --force ${DIR}wordlists/${DICT} --show --status --status-timer=5 >> ${DIR}loot/${FILE}temp.txt
 fi
 if [ $RULES == n ]
 then
-hashcat -m 2500 ${DIR}handshakes/${FILE} -a 0 -w 4 --force wordlists/${DICT} --status --status-timer=5 --show >> ${DIR}loot/${FILE}temp.txt
+hashcat -m 2500 ${DIR}handshakes/${FILE} -a 0 -w 4 --force ${DIR}wordlists/${DICT} --status --status-timer=5 --show >> ${DIR}loot/${FILE}temp.txt
 fi
 
 if [ -s ${DIR}loot/${FILE}temp.txt ]

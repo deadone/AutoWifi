@@ -18,6 +18,7 @@ Im just trying to share it with my friends.
 If you run <b>./install.sh</b>
 It will check and install any missing dependencies.
 <b>(Debian systems only, uses apt.)</b>
+<b>Test and created on Kali</b>
 
 Comes with a built in wordlist (apparently too big for github, you
 can get it from me in class),Kali comes with a built in version of

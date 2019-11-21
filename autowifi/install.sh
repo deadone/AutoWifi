@@ -56,7 +56,6 @@ sudo rm /opt/autowifi/airo/place.holder
 sudo rm /opt/autowifi/handshakes/place.holder
 sudo rm /opt/autowifi/loot/place.holder
 sudo rm /opt/autowifi/pmk/place.holder
-sudo rm /opt/autowifi/wordlists/place.holder
 sudo rm -rf $RET
 cd $HOME
 sleep 2s
@@ -88,3 +87,4 @@ echo "|                       (requires root)                           |"
 echo "|                                                    ... dead1.   |"
 echo "*******************************************************************"
 echo ""
+

@@ -4,9 +4,11 @@
 # Version: 2.0
 RET=$PWD
 echo "AutoWifi Uninstall"
-echo "Are you sure you want to unistall everything?"
+echo "Are you sure you want to unistall"
 echo "(autowifi, hcxdumptool, hcxtools)"
-echo " Y / N   <- uppercase"
+echo ""
+echo " ( Y / N )"
+echo "**************************************"
 read ANS
 
 if [ $ANS == "Y" ]

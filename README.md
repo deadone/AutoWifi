@@ -41,11 +41,11 @@ MAC address. If you use option <b>[7]</b> it will correctly change and
 randomize your NIC's MAC address. If and when you want to return to 
 your original MAC address, just use option <b>[8]</b>
 
-<b>OPTION [1]</b> - Focused capture. [EAPOL]
+<b>OPTION [1]</b> - Focused capture. <b>[EAPOL]</b>
 
-<b>OPTION [2]</b> - Passive capture. [EAPOL + PMK]
+<b>OPTION [2]</b> - Passive capture. <b>[EAPOL + PMK]</b>
 
-Options:
+<b>Options:</b>
 
 <b>[1]</b> - EAPOL Capture. Will open a airodump capture on all channels
    so that you can see which channel your target(s) are on. Press 

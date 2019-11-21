@@ -1,4 +1,15 @@
-<b>AutoWifi - dead1</b>
+
+ XXXXX  XXXXXX  XXXX  XXXXX   XXX
+ XXXXXX XXXXXX XXXXXX XXXXXX XXXX
+ XX  XX XX     XX  XX XX  XX  XXX
+ XX  XX XXXXXX XX  XX XX  XX  XXX
+ XX  XX XXXXXX XXXXXX XX  XX  XXX
+ XX  XX XX     XXXXXX XX  XX  XXX
+ XXXXXX XXXXXX XX  XX XXXXXX  XXX
+ XXXXX  XXXXXX XX  XX XXXXX  XXXXX'S
+                      AutoWifi v2.00
+ ***********************************
+<b>AutoWifi - by dead1</b>
 
 WiFi Auditing
 Bash script for analyzing and collecting EAPOL captures and PMK captures, with basic

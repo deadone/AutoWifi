@@ -15,7 +15,7 @@ echo "-=[   Uninstalling AutoWifi and Friends    ]=-"
 sudo rm -rf /opt/autowifi # removing folders
 sudo rm -rf /opt/hcxtools/
 sudo rm -rf /opt/hcxdumptool/
-sudo rm /usr/local/bin/autowifi # removing shortcuts
+sudo rm /usr/bin/autowifi # removing shortcuts
 sudo rm /usr/local/bin/hcxdumptool
 sudo rm /usr/local/bin/hcxessidtool
 sudo rm /usr/local/bin/hcxhash2cap

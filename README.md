@@ -30,9 +30,8 @@ You can open the program by going into the folder, and typing: ./main<br><br>
 * hcxdumptool (https://github.com/ZerBea/)
 * hcxtools (https://github.com/ZerBea/)
 
-Comes with a built in wordlist (apparently too big for github, you
-can get it from me in class), but Kali comes with a built in version of
-rockyou.txt, copy the file into the '/wordlists' directory.
+Comes with a built in wordlist, and Kali comes with a built in version of
+rockyou.txt, copy any other desired wordlists in '/wordlists' directory.
 
 <b>Setting Up:</b>
 When you start autowifi, first take note of <b>"CONFIGURED"</b>. If

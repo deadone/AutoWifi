@@ -1,0 +1,4 @@
+#!/bin/bash
+# Used to create shortcut when using install.sh script.
+cd /opt/autowifi/
+sudo ./main

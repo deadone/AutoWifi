@@ -6,12 +6,17 @@ RET=$PWD
 echo "**************** -=[   Installing AutoWifi...    ]=- ****************"
 echo "**************** -=[ Configurting Directories... ]=- ****************"
 # move folders to opt folder for ease of collection and removal, and set privs
-sudo mv /autowifi/ /opt/
-sudo mv /hcxdumptool/ /opt/
-sudo mv /hcxtools/ /opt/
+sudo mv autowifi/ /opt/
+sudo mv hcxdumptool/ /opt/
+sudo mv hcxtools/ /opt/
 sudo chmod 755 -R /opt/autowifi/
 sudo chmod 755 -R /opt/hcxtools/
 sudo chmod 755 -R /opt/autowifi/
+sleep 2s
+echo "[ *** DONE **** ]"
+echo ""
+echo "**************** -=[ Unzipping Wordlist... ]=- ****************"
+sudo unzip /opt/autowifi/wordlists/WPAmain.zip
 sleep 2s
 echo "[ *** DONE **** ]"
 echo ""
@@ -83,4 +88,3 @@ echo "|                       (requires root)                           |"
 echo "|                                                    ... dead1.   |"
 echo "*******************************************************************"
 echo ""
-

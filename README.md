@@ -10,17 +10,18 @@ AKA: Cracking wifi passwords.
 I made it to simplify a project, so I'm sure it has its flaws.
 Im just trying to share it with my friends.
 
-
-<b>It will check and install any missing dependencies/tools.<br></b>
-Debian systems only, uses apt<br>
 Tested and created on Kali<br>
 
 <b>To download and install type:</b><br>
 git clone https://github.com/deadone/autowifi.git<br>
 cd autowifi<br>
 chmod 755 install.sh<br>
-./install.sh<br>
+./install.sh<br><br>
+<b>It will check and install any missing dependencies/tools.<br></b>
+Install script uses apt, Debian systems only<br>
 
+You can install dependencies yourself if you dont wish to use the install script.<br>
+You can open the program by going into the folder, and typing: ./main<br><br>=
 <b>Required Tools:</b> 
 * hashcat (https://github.com/hashcat)
 * mdk3 (https://github.com/aircrack-ng/mdk3)

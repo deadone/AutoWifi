@@ -19,9 +19,9 @@ If you run ./install.sh
 It will check and install any missing dependencies.
 (Debian systems only, uses apt.)
 
-Comes with a built in wordlist, but can easily be changed
-by using the settings option and placing the wordlist in
-the /opt/autowifi/wordlists/ folder.
+Comes with a built in wordlist (apparently too big for github),
+Kali comes with a built in version of rockyou.txt, copy the file
+into the '/wordlists' directory.
 
 Setting Up:
 When you start autowifi, first take note of "CONFIGURED". If

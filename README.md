@@ -21,8 +21,8 @@ It will check and install any missing dependencies/tools.
 * hashcat
 * mdk3
 * aircrack-ng
-* hcxdumptool
-* hcxtools
+* hcxdumptool (https://github.com/ZerBea/)
+* hcxtools (https://github.com/ZerBea/)
 
 <b>Test and created on Kali</b>
 

@@ -17,10 +17,10 @@ if [ $HXCD == n ]
 then sudo mv hcxdumptool/ /opt/
 sudo chmod 700 -R /opt/hcxdumptool/
 fi
-if [ $HXCT== y ]
+if [ $HXCT == y ]
 then sudo rm -rf hcxdumptool/
 fi
-if [ $HXCT== n ]
+if [ $HXCT == n ]
 then sudo mv hcxtools/ /opt/
 sudo chmod 700 -R /opt/hcxtools/
 fi

@@ -59,7 +59,7 @@ echo "[ *** DONE **** ]"
 echo ""
 fi
 
-if [ $HXCT== n ]
+if [ $HXCT == n ]
 then echo "**************** -=[ Installing HCX Tools... ]=- ****************"
 # installs hcxtools, there is a link to the repository on the readme. 
 sleep 2s

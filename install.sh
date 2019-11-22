@@ -10,12 +10,22 @@ echo "Do you already have a copy of hcxdump? [y/n]"
 read HXCD
 echo "**************** -=[ Configurting Directories... ]=- ****************"
 # move folders to opt folder for ease of collection and removal, and set privs
-sudo mv autowifi/ /opt/
+if [ $HXCD == y ]
+sudo rm -rf hcxtools/
+fi
+if [ $HXCD == n ]
 sudo mv hcxdumptool/ /opt/
-sudo mv hcxtools/ /opt/
-sudo chmod 700 -R /opt/autowifi/
 sudo chmod 700 -R /opt/hcxdumptool/
+fi
+if [ $HXCT== y ]
+sudo rm -rf hcxdumptool/
+fi
+if [ $HXCT== n ]
+sudo mv hcxtools/ /opt/
 sudo chmod 700 -R /opt/hcxtools/
+fi
+sudo mv autowifi/ /opt/
+sudo chmod 700 -R /opt/autowifi/
 sleep 2s
 echo "[ *** DONE **** ]"
 echo ""
@@ -37,9 +47,7 @@ echo "**************** -=[ Installing Dependencies... ]=- ****************"
 sudo apt install -y hashcat mdk3 aircrack-ng libcurl4-openssl-dev libssl-dev zlib1g-dev
 echo "[ *** DONE **** ]"
 echo ""
-if [ $HXCD == y ]
-sudo rm -rf /opt/hcxtools/
-fi
+
 if [ $HXCD == n ]
 echo "**************** -=[ Installing HCXDump Tools... ]=- ****************"
 # installs hcxdumptool, there is a link to the repository on the readme.
@@ -50,8 +58,7 @@ sudo make install
 echo "[ *** DONE **** ]"
 echo ""
 fi
-if [ $HXCT== y ]
-sudo rm -rf /opt/hcxdumptool/
+
 if [ $HXCT== n ]
 echo "**************** -=[ Installing HCX Tools... ]=- ****************"
 # installs hcxtools, there is a link to the repository on the readme. 

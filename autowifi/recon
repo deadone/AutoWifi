@@ -6,9 +6,9 @@ source config.ini
 
 clear
 ./header
-echo -e "${CL8}Press [Enter] to open Large Access Point Viewing Window.${NC}"
-echo -e "Make Note of Channel ${CL9}[CH]${NC} of target access point"
-echo -e "Press ${CL8}Ctrl+C${NC} when you have decided which channel to monitor"
+echo -e "${CL8}Press [Enter] to open large monitoring window.${NC}"
+echo -e "Make note of the channel ${CL9}[CH]${NC} of your target access point"
+echo -e "Press ${CL8}Ctrl+C${NC} when you have decided the channel to focus on."
 read pause
 gnome-terminal -q -e "airodump-ng ${IFACE1}" --full-screen
 clear 
@@ -25,6 +25,11 @@ echo -e ""
 echo -e "${CL11}Launch MDK3: ${CL8}(y/n)${NC}"
 read CANNON
 echo -e ""
+echo -e "${CL8}Press [Enter] to open the focused large monitoring window.${NC}"
+echo -e "When the top of the screen says ${CL9}[WPA HANDSHAKE:00:00:00:00]${NC}"
+echo -e "You have captured a handshake for that access point."
+echo -e "Press ${CL8}Ctrl+C${NC} when you have finished with your capture."
+read pause
 echo -e "${CL11}Setting up Airodump-NG on Channel ${CL7}${CHAN} ${CL11}on ${CL7}${IFACE1}..${NC}"
 sleep 1s
 gnome-terminal -q -e "airodump-ng -c ${CHAN} -w ${DIR}airo/${NAME}${CHAN} ${IFACE1}" --full-screen

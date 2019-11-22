@@ -9,9 +9,9 @@ echo "**************** -=[ Configurting Directories... ]=- ****************"
 sudo mv autowifi/ /opt/
 sudo mv hcxdumptool/ /opt/
 sudo mv hcxtools/ /opt/
-sudo chmod 755 -R /opt/autowifi/
-sudo chmod 755 -R /opt/hcxtools/
-sudo chmod 755 -R /opt/autowifi/
+sudo chmod 700 -R /opt/autowifi/
+sudo chmod 700 -R /opt/hcxtools/
+sudo chmod 700 -R /opt/autowifi/
 sleep 2s
 echo "[ *** DONE **** ]"
 echo ""

@@ -11,17 +11,17 @@ read HXCD
 echo "**************** -=[ Configurting Directories... ]=- ****************"
 # move folders to opt folder for ease of collection and removal, and set privs
 if [ $HXCD == y ]
-sudo rm -rf hcxtools/
+then sudo rm -rf hcxtools/
 fi
 if [ $HXCD == n ]
-sudo mv hcxdumptool/ /opt/
+then sudo mv hcxdumptool/ /opt/
 sudo chmod 700 -R /opt/hcxdumptool/
 fi
 if [ $HXCT== y ]
-sudo rm -rf hcxdumptool/
+then sudo rm -rf hcxdumptool/
 fi
 if [ $HXCT== n ]
-sudo mv hcxtools/ /opt/
+then sudo mv hcxtools/ /opt/
 sudo chmod 700 -R /opt/hcxtools/
 fi
 sudo mv autowifi/ /opt/
@@ -49,7 +49,7 @@ echo "[ *** DONE **** ]"
 echo ""
 
 if [ $HXCD == n ]
-echo "**************** -=[ Installing HCXDump Tools... ]=- ****************"
+then echo "**************** -=[ Installing HCXDump Tools... ]=- ****************"
 # installs hcxdumptool, there is a link to the repository on the readme.
 sleep 2s
 cd /opt/hcxdumptool/
@@ -60,7 +60,7 @@ echo ""
 fi
 
 if [ $HXCT== n ]
-echo "**************** -=[ Installing HCX Tools... ]=- ****************"
+then echo "**************** -=[ Installing HCX Tools... ]=- ****************"
 # installs hcxtools, there is a link to the repository on the readme. 
 sleep 2s
 cd /opt/hcxtools/

@@ -21,7 +21,7 @@ echo -e ""
 echo -e "${CL11}Enter Channel:${CL8} (eg: 6)${NC}"
 read CHAN
 echo -e ""
-echo -e "${CL11}File Name:${CL8} (telus)${NC}"
+echo -e "${CL11}File Name for Capture: {eg. telus}${CL8} (telus)${NC}"
 read NAME
 echo -e ""
 echo -e "${CL11}Launch MDK3: ${CL8}(y/n)${NC}"

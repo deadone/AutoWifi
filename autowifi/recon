@@ -5,6 +5,11 @@
 source config.ini
 
 clear
+./header
+echo -e "${CL8}Press [Enter] to open Large Access Point Viewing Window.${NC}"
+echo -e "Make Note of Channel ${CL9}[CH]${NC} of target access point"
+echo -e "Press ${CL8}Ctrl+C${NC} when you have decided which channel to monitor"
+read pause
 gnome-terminal -q -e "airodump-ng ${IFACE1}" --full-screen
 clear 
 ./header

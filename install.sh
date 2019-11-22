@@ -31,7 +31,7 @@ echo "[ *** DONE **** ]"
 echo ""
 echo "**************** -=[ Unzipping Wordlist... ]=- ****************"
 sudo unzip /opt/autowifi/wordlists/WPAmain.zip
-sleep 2s
+sleep 5s
 echo "[ *** DONE **** ]"
 echo ""
 echo "**************** -=[ Creating AutoWifi Shortcut... ]=- ****************"

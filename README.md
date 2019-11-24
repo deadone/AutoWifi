@@ -15,7 +15,7 @@ Can only be used in a VM if you're using a USB adapter you can passthrough.<BR>
 <i>Install script uses apt, Kali/Debian systems only</i> <br>
 git clone https://github.com/deadone/autowifi.git<br>
 cd autowifi<br>
-chmod 755 install.sh<br>
+chmod 700 install.sh<br>
 ./install.sh<br>
 autowifi<br><br>
 <b>It will check and install any missing dependencies/tools.<br>

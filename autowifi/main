@@ -8,7 +8,7 @@ while [ ${LOOP} == 1 ]
 do
 echo -e "${NC}"
 source config.ini
-FRUN=$(service NetworkManager status | grep '(running)' | cut -b 20,21)
+FRUN=$(service NetworkManager status | grep '(running)' | cut -b 22,23)
 RMAC=$(macchanger -s $IFACE1 | grep Current | cut -b 16-32)
 MACS=$(macchanger -s $IFACE1 | grep Permanent | cut -b 16-32)
 

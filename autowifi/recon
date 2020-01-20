@@ -6,13 +6,13 @@ source config.ini
 
 clear
 ./header
-echo -e "A capture window is going to be opened."
-echo -e "Make note of the channel ${CL9}[CH]${NC} of your target access point."
-echo -e "When you have selected a target and a channel, press ${CL8}Ctrl+C${NC}."
-echo -e ""
-echo -e "${CL8}Press [Enter] to open large monitoring window now.${NC}"
-read pause
-gnome-terminal -q -e "airodump-ng ${IFACE1}" --full-screen
+#echo -e "A capture window is going to be opened."
+#echo -e "Make note of the channel ${CL9}[CH]${NC} of your target access point."
+#echo -e "When you have selected a target and a channel, press ${CL8}Ctrl+C${NC}."
+#echo -e ""
+#echo -e "${CL8}Press [Enter] to open large monitoring window now.${NC}"
+#read pause
+xfce4-terminal --command="airodump-ng ${IFACE1}" --full-screen
 clear 
 ./header
 echo -e " ${CL14}Recon Interface:${CL9}  ${IFACE1}"
@@ -34,12 +34,12 @@ echo -e "Press ${CL8}Ctrl+C${NC} when you have finished with your capture."
 read pause
 echo -e "${CL11}Setting up Airodump-NG on Channel ${CL7}${CHAN} ${CL11}on ${CL7}${IFACE1}..${NC}"
 sleep 1s
-gnome-terminal -q -e "airodump-ng -c ${CHAN} -w ${DIR}airo/${NAME}${CHAN} ${IFACE1}" --full-screen
+xfce4-terminal --command="airodump-ng -c ${CHAN} -w ${DIR}airo/${NAME}${CHAN} ${IFACE1}" --full-screen
 
 if [ $CANNON == y ]
 then echo -e ""
 sed -i -r 's/\CHANNEL=.*/CHANNEL='$CHAN'/' config.ini
-gnome-terminal -q -e "./cannon"
+xfce4-terminal --command="./cannon"
 fi
 
 if [ $CANNON == n ] 

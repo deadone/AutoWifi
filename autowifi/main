@@ -61,7 +61,7 @@ then echo -e ""
 echo -e "${CL8}Recon Opened."
 echo -e "${CL14}Good luck."
 echo -e ""
-gnome-terminal -q -e "./recon"
+xfce4-terminal --command="./recon"
 sleep 1s
 fi
 
@@ -70,7 +70,7 @@ then echo -e  ""
 echo -e "${CL8}PMK Capture Opened."
 echo -e "${CL14}Good luck."
 echo -e ""
-gnome-terminal -q -e "./pmkd" --full-screen
+xfce4-terminal --command="./pmkd" --full-screen
 sleep 1s
 fi
 
@@ -79,7 +79,7 @@ then echo -e  ""
 echo -e "${CL8}MDK5 Cannon Opened."
 echo -e "${CL14}Be Careful."
 echo -e ""
-gnome-terminal -q -e "./cannon"
+xfce4-terminal --command="./cannon"
 sleep 1s
 fi
 
@@ -88,7 +88,7 @@ then echo -e ""
 echo -e "${CL8}Hash Opened."
 echo -e "${CL14}Good luck."
 echo -e ""
-gnome-terminal -q -e "./hash"
+xfce4-terminal --command="./hash"
 sleep 1s
 fi
 

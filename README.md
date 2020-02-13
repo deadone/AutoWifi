@@ -1,3 +1,9 @@
+##########################################<br>
+<b>WITH RECENT UPDATES TO KALI WITH XFCE,<br>
+THIS SCRIPT IS NOT WORKING PROPERLY.<br>
+I WILL TRY TO FIX THE FUNCTIONS SHORTLY.</b><br>
+##########################################<br>
+
 <b>AutoWifi - by dead1</b>
 
 <b>WiFi Auditing</b><br>
